@@ -75,11 +75,6 @@ app.get('/restaurants/:id', (req, res) => {
 })
 
 
-// 新增一筆  Todo
-app.post('/todos', (req, res) => {
-	res.send('建立 Todo')
-})
-
 // 修改 Todo 頁面
 app.get('/todos/:id/edit', (req, res) => {
 	res.send('修改 Todo 頁面')
