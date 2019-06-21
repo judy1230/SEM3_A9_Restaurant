@@ -9,7 +9,9 @@
 					width="30" height="30" class="d-inline-block align-top" alt="我的餐廳清單">
 				我的餐廳清單
 			</a>
-			<a href="/restaurants/new">Create</a>
+			<form class="mr-2" action="/restaurants/new">
+				<button class="btn btn-outline-info btn-sm" type="submit">加入新餐廳</button>
+			</form>
 		</div>
 	</nav>
 
@@ -58,7 +60,7 @@
               </div>
 							{{!-- 插入 edit, detail, delete --}}
 							<div class = "row" style="float: right;">
-									<form class = "mr-2" action="/restaurants/edit">
+									<form class = "mr-2" action="/restaurants/{{{this.id}}}/edit">
 										<button class="btn btn-outline-info btn-sm" type="submit">edit</button>
 									</form>
 									<form class = "mr-2"action="/restaurants/{{{this.id}}}">

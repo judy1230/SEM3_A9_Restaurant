@@ -15,9 +15,21 @@
 </header>
 
 <h1 class="mb-1 restaurant-show-title">{{restaurant.name}}</h1>
+	
 <div class="container">
 	<div class="row">
-		<div class="col-12 col-md-10 mx-auto">
+		<div class="col-10 col-md-10 mx-auto">
+
+			{{!-- 插入 edit, detail, delete --}}
+			<div class="row" style="float: right;">
+				<form class="mr-2" action="/restaurants/{{restaurant.id}}/edit">
+					<button class="btn btn-outline-info btn-sm" type="submit">edit</button>
+				</form>
+				<form class="mr-2" action='/restaurants/{{{restaurant.id}}}/delete' method="POST">
+					<button class="btn btn-outline-danger btn-sm" type="submit">delete</button>
+				</form>
+			</div>
+			{{!-- 插入 edit, detail, delete --}}
 
 			<p class="mb-1">
 				<span class="text-secondary">
@@ -56,3 +68,23 @@
 		</div>
 	</div>
 </div>
+
+<!-- Footer -->
+<footer id="footer">
+	<div class="container">
+		<div class="footer-content">
+			<p>&copy; 2019 Author by Judy | All Rights Reserved.</p>
+			<div class="footer-social-icon">
+				{{!-- <ul>
+					<li>
+						<a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
+						<a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+						<a href=""><i class="fa fa-github-alt" aria-hidden="true"></i></a>
+						<a href=""><i class="fa fa-skype" aria-hidden="true"></i></a>
+						<a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+					</li>
+				</ul> --}}
+			</div>
+		</div>
+	</div>
+</footer>
