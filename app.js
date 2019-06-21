@@ -4,6 +4,8 @@ const app = express()
 const mongoose = require('mongoose')
 const Restaurant = require('./models/restaurant.js')
 const exphbs = require('express-handlebars')
+const bodyParser = require('body-parser')
+
 
 //連線到mongoDB
 mongoose.connect('mongodb://localhost/restaurant', { useNewUrlParser: true})
@@ -23,6 +25,8 @@ db.once('open', () => {
 //express template engine
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
+app.use(bodyParser.urlencoded({ extended: true }))
+
 // setting static files
 app.use(express.static('public'))
 
@@ -36,9 +40,29 @@ app.get('/', (req, res) => {
 })
 
 
-// 新增一筆 Todo 頁面
-app.get('/todos/new', (req, res) => {
-	res.send('新增 Todo 頁面')
+// 新增一筆 restaurant 頁面
+app.get('/restaurants/new', (req, res) => {
+	res.render('new')
+})
+
+//new restaurant 頁面輸入資料儲存至mongodb
+app.post('/restaurants', (req, res) => {
+	const restaurant = Restaurant({
+		name: req.body.name,
+		name_en: req.body.name_en,
+		category: req.body.category,
+		image: req.body.image,
+		location: req.body.location,
+		phone: req.body.phone,
+		google_map: req.body.google_map,
+		rating: req.body.rating,
+		description: req.body.description
+	})
+	restaurant.save((err) => {
+		if (err) return console.log(err)
+		console.log(`add ${req.body.name} restaurant in mongodb!`)
+		return res.redirect('/')
+	})
 })
 
 // 顯示一筆 Restaurant 的詳細內容

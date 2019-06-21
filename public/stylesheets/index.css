@@ -19,6 +19,15 @@ header {
   background-size: cover;
   filter: blur(3px);
 }
+.banner_new {
+  position: relative;
+  z-index: -1;
+  margin: -5px;
+  height: 150px;
+  background: #dddddd center center url('https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5720/restaurants-list-cover.jpg');
+  background-size: cover;
+  filter: blur(3px);
+}
 
 .search-bar .search-bar-outer {
   margin: 0 auto;
@@ -99,3 +108,22 @@ header {
   }
   
 }
+footer {
+  padding: 40px 0;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+}
+
+ .footer-content p {
+  line-height: 5px;
+}
+
+ /* .footer-social-icon a i {
+  color: #fff;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 15px;
+  margin-right: 15px;
+} */
