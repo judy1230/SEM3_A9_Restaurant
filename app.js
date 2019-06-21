@@ -29,13 +29,12 @@ app.use(express.static('public'))
 // 設定路由
 // restaurant 首頁
 app.get('/', (req, res) => {
-	res.send('hello world!')
+	Restaurant.find((err, restaurants) => {             
+		if (err) return console.error(err)
+		return res.render('index', { restaurants: restaurants })  
+	})
 })
 
-// 列出全部 Todo
-app.get('/restaurants', (req, res) => {
-	return res.render('index')
-})
 
 // 新增一筆 Todo 頁面
 app.get('/todos/new', (req, res) => {
