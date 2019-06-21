@@ -41,10 +41,15 @@ app.get('/todos/new', (req, res) => {
 	res.send('新增 Todo 頁面')
 })
 
-// 顯示一筆 Todo 的詳細內容
-app.get('/todos/:id', (req, res) => {
-	res.send('顯示 Todo 的詳細內容')
+// 顯示一筆 Restaurant 的詳細內容
+app.get('/restaurants/:id', (req, res) => {
+	Restaurant.findById(req.params.id, (err, restaurant) => {
+		console.log(req.params.id)
+		console.log('restaurant', restaurant)
+		return res.render('show', { restaurant: restaurant })
+	})
 })
+
 
 // 新增一筆  Todo
 app.post('/todos', (req, res) => {
@@ -75,12 +80,7 @@ app.get('/', (req, res) => {
 //	res.render('index', { restaurants: restaurantList.results })
 })
 
-// app.get('/restaurants/:restaurant_id', (req, res) => {
-// 	console.log('restaurant_id', req.params.restaurant_id)
-// 	const restaurant = restaurantList.results.filter(function (item) { return item.id === Number(req.params.restaurant_id) })
-// 	console.log('restaurant', restaurant)
-// 	res.render('show', { restaurant: restaurant[0] })
-// })
+
 
 //設定express port 3000
 app.listen(3000, () => {
