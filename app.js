@@ -7,6 +7,7 @@ const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 
 
+
 //連線到mongoDB
 mongoose.connect('mongodb://localhost/restaurant', { useNewUrlParser: true})
 //mongoose 連線後透過mongoose.connection拿到 connection的物件
@@ -104,26 +105,39 @@ app.post('/restaurants/:id', (req, res) => {
 	})
 })
 
+
+
 // 刪除 restaurant
 app.post('/restaurants/:id/delete', (req, res) => {
 	
-	Restaurant.findById(req.params.id, (err, restaurant) => {
-		if (err) return console.error(err)
-		restaurant.remove(err => {
+		Restaurant.findById(req.params.id, (err, restaurant) => {
 			if (err) return console.error(err)
-			return res.redirect('/')
+			restaurant.remove(err => {
+				if (err) return console.error(err)
+				return res.redirect('/')
+			})
+   })		
+			
+})
+	
+
+//search
+
+app.get('/search', (req, res) => {
+	Restaurant.find((err, restaurants) => {
+		const keyword = req.query.keyword
+		if (err) return console.error(err)
+		const restaurantSearch = restaurants.filter(({name, category}) => {
+			// return (name || category) includes keyword
+			return (category.toLowerCase().includes(keyword.toLowerCase()) || name.toLowerCase().includes(keyword.toLowerCase()))
 		})
-	})
+		return res.render('index', { restaurants: restaurantSearch })
+	})	
 })
 
 
 
 
-// routes setting
-app.get('/', (req, res) => {
-	// past the movie data into 'index' partial template
-//	res.render('index', { restaurants: restaurantList.results })
-})
 
 
 

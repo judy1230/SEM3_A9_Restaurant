@@ -23,12 +23,12 @@
 	<div class="search-bar-outer">
 		<div class="search-bar-inner">
 			<form action="/search">
-				<h4 class="mb-2">尋找餐廳：</h4>
+				<h4 class="mb-2">尋找餐廳</h4>
 				<div class="input-group">
 					<input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
 						value="" aria-describedby="search-button">
 					<div class="input-group-append">
-						<button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
+						<button class="btn btn-major" type="submit" id="search-button">搜尋<i class="fas fa-search"></i></button>
 					</div>
 				</div>
 			</form>
@@ -60,19 +60,36 @@
               </div>
 							{{!-- 插入 edit, detail, delete --}}
 							<div class = "row" style="float: right;">
-									<form class = "mr-2" action="/restaurants/{{{this.id}}}/edit">
+									<form class = "mr-2" action="/restaurants/{{this.id}}/edit">
 										<button class="btn btn-outline-info btn-sm" type="submit">edit</button>
 									</form>
-									<form class = "mr-2"action="/restaurants/{{{this.id}}}">
+									<form class = "mr-2"action="/restaurants/{{this.id}}">
 										<button class="btn btn-outline-primary btn-sm" type="submit">detail</button>
 									</form>
-									<form class = "mr-2"action='/restaurants/{{{this.id}}}/delete' method="POST">
-										<button class ="btn btn-outline-danger btn-sm"type="submit">delete</button>
-									</form>				
-							</div>
-						{{!-- 插入 edit, detail, delete --}}
-						</div>
-					</div>      
+									<button class ="btn btn-outline-danger btn-sm"type="submit" data-toggle="modal" data-target="
+                    #deleteRestaurant{{this.id}}" >delete</button>
+							</div>			
+									
+	  								{{!--  delete restaurant modal --}}
+											<div class="modal fade" id="deleteRestaurant{{this.id}}" tabindex="-1" role="dialog">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-body">
+															<p class="font-weight-light">Ready to delete {{this.name}}?</p>
+														</div>
+														<div class="modal-footer">
+															<form action='/restaurants/{{this.id}}/delete' method="POST">
+																<button type="submit" class="btn btn-danger">刪除</button>
+															</form>
+															<button type="button" class="btn btn-secondary" data-dismiss="modal">x</button>
+														</div>						
+													</div>
+												</div>
+											</div>
+									
+						  
+					  </div>
+				  </div>      
 				
 				{{/each}}
 			</div>

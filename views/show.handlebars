@@ -25,11 +25,28 @@
 				<form class="mr-2" action="/restaurants/{{restaurant.id}}/edit">
 					<button class="btn btn-outline-info btn-sm" type="submit">edit</button>
 				</form>
-				<form class="mr-2" action='/restaurants/{{{restaurant.id}}}/delete' method="POST">
-					<button class="btn btn-outline-danger btn-sm" type="submit">delete</button>
-				</form>
+				<button class="btn btn-outline-danger btn-sm" type="submit" data-toggle="modal" data-target="
+				                    #deleteRestaurant{{restaurant.id}}">delete</button>
 			</div>
-			{{!-- 插入 edit, detail, delete --}}
+				
+				{{!--  delete restaurant modal --}}
+				<div class="modal fade" id="deleteRestaurant{{restaurant.id}}" tabindex="-1" role="dialog">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-body">
+								<p class="font-weight-light">Ready to delete {{restaurant.name}}?</p>
+							</div>
+							<div class="modal-footer">
+								<form action='/restaurants/{{restaurant.id}}/delete' method="POST">
+									<button type="submit" class="btn btn-danger">刪除</button>
+								</form>
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">x</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+		
 
 			<p class="mb-1">
 				<span class="text-secondary">

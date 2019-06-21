@@ -14,8 +14,8 @@ header {
   position: relative;
   z-index: -1;
   margin: -5px;
-  height: 360px;
-  background: #dddddd center center url('https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5720/restaurants-list-cover.jpg');
+  height: 120px;
+  background: white center center url('https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5720/restaurants-list-cover.jpg');
   background-size: cover;
   filter: blur(3px);
 }
@@ -23,7 +23,7 @@ header {
   position: relative;
   z-index: -1;
   margin: -5px;
-  height: 150px;
+  height: 120px;
   background: #dddddd center center url('https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5720/restaurants-list-cover.jpg');
   background-size: cover;
   filter: blur(3px);
