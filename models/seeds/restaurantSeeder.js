@@ -22,7 +22,8 @@ db.once('open', () => {
 			"phone": restaurantList.results[i].phone,
 			"google_map": restaurantList.results[i].google_map,
 			"rating": restaurantList.results[i].rating,
-			"description": restaurantList.results[i].description
+			"description": restaurantList.results[i].description,
+			"timestamp": restaurantList.results[i].timestamp
 		})
 		 }
 	

@@ -8,6 +8,7 @@ const bodyParser = require('body-parser')
 
 
 
+
 //連線到mongoDB
 mongoose.connect('mongodb://localhost/restaurant', { useNewUrlParser: true})
 //mongoose 連線後透過mongoose.connection拿到 connection的物件
@@ -34,10 +35,35 @@ app.use(express.static('public'))
 // 設定路由
 // restaurant 首頁
 app.get('/', (req, res) => {
-	Restaurant.find((err, restaurants) => {             
+	Restaurant.find().sort({name:'asc'})
+	.exec((err, restaurants) => {             
 		if (err) return console.error(err)
 		return res.render('index', { restaurants: restaurants })  
 	})
+})
+
+//sort restaurants
+app.get('/restaurants/filter', (req, res) => {
+	console.log('req._parsedOriginalUrl.query', req._parsedOriginalUrl.query)
+	switch (req._parsedOriginalUrl.query) {
+		case 'atoz':
+			Restaurant.find((err, restaurants) => {
+				if (err) return console.error(err)
+				return res.render('index', { restaurants: restaurants })
+			}).sort({ name_en: 1 })
+			break;
+		case 'time':
+			Restaurant.find((err, restaurants) => {
+				if (err) return console.error(err)
+				return res.render('index', { restaurants: restaurants })
+			}).sort({ timestamp: 1 })
+			break;
+		case 'rating':
+			Restaurant.find((err, restaurants) => {
+				if (err) return console.error(err)
+				return res.render('index', { restaurants: restaurants })
+			}).sort({ rating: -1 })
+	}
 })
 
 
