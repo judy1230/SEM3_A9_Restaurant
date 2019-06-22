@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const Restaurant = require('./models/restaurant.js')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 
 
 
@@ -28,6 +29,7 @@ db.once('open', () => {
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 
 // setting static files
 app.use(express.static('public'))
@@ -112,7 +114,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
 })
 
 // 修改 restaurant 資料
-app.post('/restaurants/:id', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
 	Restaurant.findById(req.params.id, (err, restaurant) => {
 		restaurant.name = req.body.name,
 		restaurant.name_en = req.body.name_en,
@@ -134,7 +136,7 @@ app.post('/restaurants/:id', (req, res) => {
 
 
 // 刪除 restaurant
-app.post('/restaurants/:id/delete', (req, res) => {
+app.delete('/restaurants/:id/delete', (req, res) => {
 	
 		Restaurant.findById(req.params.id, (err, restaurant) => {
 			if (err) return console.error(err)
@@ -160,11 +162,6 @@ app.get('/search', (req, res) => {
 		return res.render('index', { restaurants: restaurantSearch })
 	})	
 })
-
-
-
-
-
 
 
 //設定express port 3000

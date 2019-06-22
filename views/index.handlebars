@@ -41,7 +41,7 @@
 	<div class="dropdown col-t">
 		<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
 			aria-haspopup="true" aria-expanded="false">
-			排列
+		  Sort
 		</button>
 		<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 				<a class="dropdown-item" href="/restaurants/filter?atoz">A-Z</a>
@@ -95,7 +95,7 @@
 															<p class="font-weight-light">Ready to delete {{this.name}}?</p>
 														</div>
 														<div class="modal-footer">
-															<form action='/restaurants/{{this.id}}/delete' method="POST">
+															<form action='/restaurants/{{this.id}}/delete?_method=DELETE' method="POST">
 																<button type="submit" class="btn btn-danger">刪除</button>
 															</form>
 															<button type="button" class="btn btn-secondary" data-dismiss="modal">x</button>

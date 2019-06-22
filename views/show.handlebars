@@ -37,7 +37,7 @@
 								<p class="font-weight-light">Ready to delete {{restaurant.name}}?</p>
 							</div>
 							<div class="modal-footer">
-								<form action='/restaurants/{{restaurant.id}}/delete' method="POST">
+								<form action='/restaurants/{{restaurant.id}}/delete?_method=DELETE' method="POST">
 									<button type="submit" class="btn btn-danger">刪除</button>
 								</form>
 								<button type="button" class="btn btn-secondary" data-dismiss="modal">x</button>
