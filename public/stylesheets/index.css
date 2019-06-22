@@ -30,8 +30,8 @@ header {
 }
 
 .search-bar .search-bar-outer {
-  margin: 0 auto;
-  max-width: 680px;
+  margin: auto;
+  max-width: 360px;
   background-color: #fce2cf;
   border-radius: 8px;
   padding: 20px 30px;
@@ -42,6 +42,10 @@ header {
 
 .search-bar .search-bar-inner h4 {
   color: #9b4b4b;
+}
+
+.dropdown {
+  margin: auto;
 }
 
 .form-control::placeholder {

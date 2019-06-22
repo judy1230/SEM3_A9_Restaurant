@@ -18,23 +18,40 @@
 	<div class="banner"></div>
 </header>
 
-<!-- search bar -->
-<div class="container search-bar">
-	<div class="search-bar-outer">
-		<div class="search-bar-inner">
-			<form action="/search">
-				<h4 class="mb-2">尋找餐廳</h4>
-				<div class="input-group">
-					<input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
-						value="" aria-describedby="search-button">
-					<div class="input-group-append">
-						<button class="btn btn-major" type="submit" id="search-button">搜尋<i class="fas fa-search"></i></button>
+<div class="row">
+	<!-- search bar -->
+	<div class="container search-bar col-6">
+		<div class="search-bar-outer">
+			<div class="search-bar-inner">
+				<form action="/search">
+					<h4 class="mb-2">尋找餐廳</h4>
+					<div class="input-group">
+						<input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
+							value="" aria-describedby="search-button">
+						<div class="input-group-append">
+							<button class="btn btn-major" type="submit" id="search-button">搜尋<i class="fas fa-search"></i></button>
+						</div>
 					</div>
-				</div>
-			</form>
+				</form>
+			</div>
 		</div>
 	</div>
+	
+	{{!-- sort-bar --}}
+	<div class="dropdown col-t">
+		<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+			aria-haspopup="true" aria-expanded="false">
+			排列
+		</button>
+		<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			<a class="dropdown-item" href="#">A-Z</a>
+			<a class="dropdown-item" href="#">地區</a>
+			<a class="dropdown-item" href="#">類型</a>
+		</div>
+	</div>
+
 </div>
+
 
 <!-- restaurant list -->
 <div class="container mt-5">
