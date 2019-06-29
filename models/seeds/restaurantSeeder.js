@@ -11,7 +11,8 @@ db.on('error', () => {
 
 db.once('open', () => {
 	console.log('db connected!')
-	for (let i = 0; i < restaurantList.results.length; i++){
+	
+	for (let i = 0; i < restaurantList.results.length/2; i++){
     Restaurant.create({
 			//"id": restaurantList.results[i].id,
 			"name": restaurantList.results[i].name,
