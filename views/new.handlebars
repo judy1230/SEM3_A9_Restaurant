@@ -6,8 +6,10 @@
 				height="30" class="d-inline-block align-top" style="height:30%;"alt="我的餐廳清單">
 			我的餐廳清單
 		</a>
+		
 		<a href="/">返回</a>
 	</div>
+	
 </nav>
 
 <div class="banner_new"></div>
@@ -15,7 +17,7 @@
 
 <div class="border-0 mb-3" style="width: 50%; margin:auto;">
 <form action='/restaurants' method="POST">
-	
+{{> messages }}
 	<div class="form-group row">
 		<div class="col-sm-6">
 			<label for="name">餐廳名稱:</label>

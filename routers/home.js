@@ -4,14 +4,15 @@ const Restaurant = require('../models/restaurant.js')
 const { authenticated } = require('../config/auth.js')
 // restaurant 首頁
 router.get('/', authenticated, (req, res) => {
-	console.log('name',Restaurant.find({ userId: req.user._id }).name)
-	req.flash('success_msg', 'welcome!  你已成功登入')
-	Restaurant.find({ userId: req.user._id })
+	
+	req.flash('success_msg', `Welcome! ${req.user.name} 你已成功登入`)
+	Restaurant.find({ userID: req.user._id })
 	  .sort({ name: 'asc' })
 		.exec((err, restaurants) => {
 			if (err) return console.error(err)
 			return res.render('index', { restaurants: restaurants })
 		})
+	
 	
 })
 router.get('/search', (req, res) => {

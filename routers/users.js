@@ -29,7 +29,7 @@ router.post('/login', ( req, res, next) =>{
 		failureRedirect: '/users/login',
 		failureFlash: true,
 	})(req, res, next)
-
+	
 })
 
 
@@ -41,7 +41,7 @@ router.get('/register', (req, res) =>{
 router.post('/register', (req, res) => {
 	const { email, password, password2 } = req.body
 	let {name} = req.body
-	let defaultname = '天菜主廚'
+	let defaultName = '天菜主廚'
 	// 加入錯誤訊息提示
 	let errors = []
 
@@ -49,7 +49,7 @@ router.post('/register', (req, res) => {
 		errors.push({ message: 'email, password 必填!' })
 	}
 	if (!name){
-		name = defaultname
+		name = defaultName
 	}
 
 	if (password !== password2) {

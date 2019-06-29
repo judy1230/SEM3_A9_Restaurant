@@ -9,18 +9,23 @@
 					width="30" height="30" class="d-inline-block align-top" alt="我的餐廳清單">
 				我的餐廳清單
 			</a>
+			{{> messages }}
+			<div class="row">
+	    
 			<form class="mr-2" action="/restaurants/new">
 				<button class="btn btn-outline-info btn-sm" type="submit">加入新餐廳</button>
 			</form>
 		</div>
+		
 	</nav>
 
-	<div class="banner"></div>
+	<div class="banner"></div>		
 </header>
+
 
 <div class="row">
 	<!-- search bar -->
-	<div class="container search-bar col-6">
+	<div class="container search-bar col-8">
 		<div class="search-bar-outer">
 			<div class="search-bar-inner">
 				<form action="/search">
@@ -36,21 +41,25 @@
 			</div>
 		</div>
 	</div>
-	
+
 	{{!-- sort-bar --}}
-	<div class="dropdown col-t">
+	<div class="dropdown col-4">
 		<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
 			aria-haspopup="true" aria-expanded="false">
-		  Sort
+			Sort
 		</button>
 		<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class="dropdown-item" href="/restaurants/filter?atoz">A-Z</a>
-				<a class="dropdown-item" href="/restaurants/filter?time">依時間排序</a>
-				<a class="dropdown-item" href="/restaurants/filter?rating">依評分排序</a>
+			<a class="dropdown-item" href="/restaurants/sort?atoz">A-Z</a>
+			<a class="dropdown-item" href="/restaurants/sort?time">依時間排序</a>
+			<a class="dropdown-item" href="/restaurants/sort?rating">依評分排序</a>
 		</div>
 	</div>
 
 </div>
+
+	
+	
+
 
 
 <!-- restaurant list -->
