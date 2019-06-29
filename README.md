@@ -53,4 +53,4 @@ this project will run in node.js enviroment, install it by below command in your
 |新增user login/logout & register| user login /logout 與register新使用者, 並增加提醒功能                          |     |
 
 # Authors
-  <li>Judy</li> <p>first edited on 06/22/2019</p>
+  <li>Judy</li> <p>first edited on 06/30/2019</p>
